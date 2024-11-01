@@ -1,4 +1,5 @@
-cmake-build-debug
+
 *.xml
 *.idea
 *.ide
+cmake-build-debug*

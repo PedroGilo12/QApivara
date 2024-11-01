@@ -1,6 +1,11 @@
-#include "DSMatrizModule/DSMatrizModuleSample.h"
+#include <QApplication>
+
+#include "ui/MainWindow.h"
 
 int main(int argc, char *argv[])
 {
-    DSMatrizModuleSample(argc, argv);
+    QApplication app(argc, argv);
+    MainWindow window;
+    window.show();
+    return QApplication::exec();
 }
