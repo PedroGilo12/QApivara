@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include "include/second_driver.h"
 
-int soma(int a, int b) {
+int Soma(int a, int b) {
 	printf("oi");
     return a + b;
 }

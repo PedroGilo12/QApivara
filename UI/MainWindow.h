@@ -5,8 +5,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTableWidget>
 #include <QTreeWidget>  // Inclui QTreeWidget para a árvore de diretórios
 
+#include "HomeTab.h"
+
+
+class ComplianceGrid;
 QT_BEGIN_NAMESPACE
 class QAction;
 class QActionGroup;
@@ -18,66 +23,50 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-private:
-    QTreeWidget *treeWidget; // Define treeWidget para a estrutura de árvore
+   private:
+    QTreeWidget *treeWidget;
+    QString projectPath;
+    QTabWidget *tabWidget;
+    QTableWidget *table;
+    HomeTabSingleton &HomeTab = HomeTabSingleton::instance();
+    ComplianceGrid *complianceGrid;
 
-public:
+   public:
     MainWindow();
 
-protected:
+   protected:
 #ifndef QT_NO_CONTEXTMENU
     void contextMenuEvent(QContextMenuEvent *event) override;
-#endif // QT_NO_CONTEXTMENU
+#endif  // QT_NO_CONTEXTMENU
 
-    private slots:
-        void newFile();
-    void open(); // Atualizado para listar diretórios em treeWidget
-    void save();
-    void print();
-    void undo();
-    void redo();
-    void cut();
-    void copy();
-    void paste();
-    void bold();
-    void italic();
-    void leftAlign();
-    void rightAlign();
-    void justify();
-    void center();
-    void setLineSpacing();
-    void setParagraphSpacing();
+   private slots:
+    void newFile();
+    void createDSM();
+    void open();
+    void setCompliance();
+    void viewResults();
+    void safetyAnalyze();
     void about();
-    void aboutQt();
 
-private:
+   private:
     void createActions();
     void createMenus();
-    void insertItemsInTree(const QString &path, QTreeWidgetItem *parentItem = nullptr); // Novo método para inserir itens recursivamente
+    void insertItemsInTree(const QString &path,
+                           QTreeWidgetItem *parentItem =
+                               nullptr);  // Novo método para inserir itens recursivamente
 
     QMenu *fileMenu;
     QMenu *editMenu;
     QMenu *formatMenu;
     QMenu *helpMenu;
     QActionGroup *alignmentGroup;
+
     QAction *newAct;
+    QAction *viewResultAct;
     QAction *openAct;
-    QAction *saveAct;
-    QAction *printAct;
     QAction *exitAct;
-    QAction *undoAct;
-    QAction *redoAct;
-    QAction *cutAct;
-    QAction *copyAct;
-    QAction *pasteAct;
-    QAction *boldAct;
-    QAction *italicAct;
-    QAction *leftAlignAct;
-    QAction *rightAlignAct;
-    QAction *justifyAct;
-    QAction *centerAct;
-    QAction *setLineSpacingAct;
-    QAction *setParagraphSpacingAct;
+    QAction *setComplianceAct;
+    QAction *safetyAnalyzeAct;
     QAction *aboutAct;
     QAction *aboutQtAct;
     QLabel *infoLabel;

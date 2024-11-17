@@ -5,13 +5,15 @@
 
 #define MACRO1 90
 
-int zapzap(void) {
-    return 1;
+int oioi = 10;
+
+int Zapzap(void) {
+    return 0;
 }
 
 int main() {
-    int x = 10;
-    int y = 5;
+    int x = MACRO1;
+    char y;
 
 #if MACRO_TESTE == 1
     very_basic_function();
@@ -20,5 +22,4 @@ int main() {
     printf("Soma: %d\n", soma(x, y));
     printf("Subtração: %d\n", subtrai(x, y));
 
-    return 0;
 }
