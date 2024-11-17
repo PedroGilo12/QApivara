@@ -1,0 +1,19 @@
+naming_patterns:
+  snake_case: ^[a-z0-9]+(_[a-z0-9]+)*$
+  camel_case: ^[a-z]+([A-Z][a-z0-9]*)*$
+  pascal_case: ^[A-Z][a-z0-9]*(?:[A-Z][a-z0-9]*)*$
+  upper_case: ^[A-Z0-9]+(_[A-Z0-9]+)*$
+  kebab_case: ^[a-z0-9]+(-[a-z0-9]+)*$
+  valid_identifiers: ^[a-zA-Z_][a-zA-Z0-9_]*$
+specifies_naming_patterns:
+  variable_naming: snake_case
+  function_naming: snake_case
+  class_naming: pascal_case
+  constant_naming: upper_case
+  macro_naming: upper_case
+compiler_options:
+  optimization_level: -O2
+  warning_level: -Wall
+  debug_info: -g
+  standard: -std=c11
+
